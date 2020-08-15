@@ -1,0 +1,271 @@
+body{
+		padding:0;
+		margin:0;
+		display:grid;
+		grid-template-rows:1fr 2fr 1fr;
+		grid-template-columns:2fr 3fr 5fr;
+		grid-template-areas:
+		"sun cloud cloud"
+		"bird bird windmill"
+		"land land windmill";
+		background-color:lightskyblue;
+		min-height:100vh;
+		grid-gap:10px;
+		animation:changeSeason 10s linear infinite forwards;
+		}
+@keyframes changeSeason{
+		0%{background-color: rgba(135,206,250,1)}
+		30%{background-color: rgba(135,206,250,1)}
+		45%{background-color:rgba(150,75,0,1)}
+		60%{background-color:rgba(150,75,0,1)}
+		80%{background-color:rgba(18,52,86,1)}
+		95%{background-color:rgba(18,52,86,1)}
+		}		
+.climate{
+		grid-area:sun;
+		display:grid;
+		align-content: center;
+		justify-content:center;
+		z-index:1;
+		}
+.sun{
+		background-color:orange;
+		width:4.5vmax;
+		height:4.5vmax;
+		border-radius:50%;
+		box-shadow:
+		0 0 0 5px rgba(255,165,0,.4),
+		0 0 0 10px rgba(255,165,0,.35),
+		0 0 0 15px rgba(255,165,0,.3),
+		0 0 0 20px rgba(255,165,0,.25),
+		0 0 0 25px rgba(255,165,0,.2),
+		0 0 0 30px rgba(255,165,0,.15),
+		0 0 0 35px rgba(255,165,0,.1),
+	  0 0 0 40px rgba(255,165,0,.05);
+	  border:.3px solid yellow;
+	  animation:changeSunSeason 10s linear infinite forwards;
+		}
+@keyframes changeSunSeason{
+		80%{background-color:rgba(255,255,255,1);
+		box-shadow:
+		0 0 0 5px rgba(255,255,255,.4),
+		0 0 0 10px rgba(255,255,255,.35),
+		0 0 0 15px rgba(255,255,255,.3),
+		0 0 0 20px rgba(255,255,255,.25),
+		0 0 0 25px rgba(255,255,255,.2),
+		0 0 0 30px rgba(255,255,255,.15),
+		0 0 0 35px rgba(255,255,255,.1),
+	  0 0 0 40px rgba(255,255,255,.05);
+	  border:.3px solid #fff;
+		}
+	95%{background-color:rgba(255,255,255,1);
+		box-shadow:
+		0 0 0 5px rgba(255,255,255,.4),
+		0 0 0 10px rgba(255,255,255,.35),
+		0 0 0 15px rgba(255,255,255,.3),
+		0 0 0 20px rgba(255,255,255,.25),
+		0 0 0 25px rgba(255,255,255,.2),
+		0 0 0 30px rgba(255,255,255,.15),
+		0 0 0 35px rgba(255,255,255,.1),
+	  0 0 0 40px rgba(255,255,255,.05);
+	  border:.3px solid #fff;
+		}
+	}
+.allClouds{
+		grid-area:1/1/2/4;
+		position:relative;
+		overflow:hidden;
+		}
+.allClouds > div{
+		position:relative;
+		background-color:rgba(255,255,255,.4);
+		border-radius:50% 50% 0% 0%;
+		opacit:.2;
+		z-index:3;
+		}
+.cloud1{
+		top:20%;
+		left:120%;
+		width:10%;
+		height:20%;
+		border:1px solid #fff;
+		animation:moveCloud1 10s linear infinite forwards;
+		}
+.cloud2{
+		top:40%;
+		left:130%;
+		width:10%;
+		height:20%;
+		animation-duration:8s;
+		border:1px solid #fff;
+		animation:moveCloud2 15s linear infinite forwards;
+		}
+.cloud3{
+		top:0%;
+		left:170%;
+		width:15%;
+		height:20%;
+		border:1px solid #fff;
+		animation:moveCloud3 20s linear infinite forwards;
+		}
+@keyframes moveCloud1{
+		100%{left:-30%}
+		}
+@keyframes moveCloud2{
+		100%{left:-30%}
+		}
+@keyframes moveCloud3{
+		100%{left:-30%}
+		}
+
+.cloud1:after,.cloud2:after,.cloud3:after{
+		content:"";
+		position: absolute;
+		left:70%;
+		width:100%;
+		height:100%;
+		background-color:rgba(255,255,255,.3);
+		border-radius:50% 50% 0% 0%;
+		}
+.cloud1:before,.cloud2:before,.cloud3:before{
+		content:"";
+		position: absolute;
+		left:-100%;
+		width:100%;
+		height:100%;
+		background-color:rgba(255,255,255,.5);
+		border-radius:50% 50% 0% 30%;		
+		}
+
+.allBirds{
+		grid-area:bird;
+		}
+.windmill{
+		position:relative;
+		grid-area:windmill;
+		background-color: transparent;
+		z-index:1;
+		}
+.windmill > div{
+		position: absolute;
+		}
+.stand{
+		top:35%;
+		left:50%;
+	 width:1vmin;
+	  height:32vh;
+	  background-color:#123456;
+	 z-index:-10;
+	 }
+.blade1,.blade2,.blade3,.blade4,.blade5,.blade6{
+		top:35%;
+		left:50%;
+	  width:1vmin;
+	  height:14vh;
+  	 background-color:#fff;
+  	 border-radius:0 0 50% 50%;
+  	 border:.3px solid #ccc;
+		}
+.blade1{
+		transform:rotateZ(55deg);
+   transform-origin:top;
+   animation:moveBlade1 8s linear infinite forwards;
+		}
+.blade2{
+		transform:rotateZ(115deg);
+  	transform-origin:top;
+  	animation:moveBlade2 8s linear infinite forwards;
+		}
+.blade3{
+		transform:rotateZ(175deg);
+  	transform-origin:top;
+  	animation:moveBlade3 8s linear infinite forwards;
+		}
+.blade4{
+		transform:rotateZ(235deg);
+  	transform-origin:top;
+  	animation:moveBlade4 8s linear infinite forwards;
+		}
+.blade5{
+		transform:rotateZ(295deg);
+  	transform-origin:top;
+  	animation:moveBlade5 8s linear infinite forwards;
+		}
+.blade6{
+		transform:rotateZ(355deg);
+  	transform-origin:top;
+  	animation:moveBlade6 8s linear infinite forwards;
+		}
+		
+@keyframes moveBlade1{
+		100%{transform:rotateZ(415deg);}
+		}
+@keyframes moveBlade2{
+		100%{transform:rotateZ(475deg);}
+		}
+@keyframes moveBlade3{
+		100%{transform:rotateZ(535deg);}
+		}
+@keyframes moveBlade4{
+		100%{transform:rotateZ(595deg);}
+		}
+@keyframes moveBlade5{
+		100%{transform:rotateZ(655deg);}
+		}
+@keyframes moveBlade6{
+		100%{transform:rotateZ(715deg);}
+		}
+
+.allLands{
+		position:relative;
+		grid-area:3/1/4/4;
+		background-colo:orange;		
+		z-index:-4;
+		overflow: hidden;
+		}
+.allLands > div{
+		position:absolute;
+		background-color:#f0f0f0;
+		border-top:.3px solid #555;
+		box-shadow:
+		inset -5px 0px 2px 6px rgba(128,128,128,.2);
+		animation:changeLandSeason 10s linear infinite forwards;
+		}
+@keyframes changeLandSeason{
+		30%{background-color:#dbdbdb}
+		45%{background-color:rgba(175,155,71,1)}
+		60%{background-color:rgba(175,155,71,1)}
+		80%{background-color:rgba(105,105,105,1)}
+		95%{background-color:rgba(105,105,105,1)}
+		}
+.land1{
+		top:40%;
+		left:-10vw;
+		width:50vw;
+		height:60%;
+		border-radius:50% 50% 0 0;
+		}
+.land2{
+		top:40%;
+		left:20vw;
+		width:50vw;
+		height:60%;
+		border-radius:50% 50% 0 0;
+		}
+.land3{
+		top:20%;
+		left:60vw;
+		width:50vw;
+		height:80%;
+		border-radius:50% 50% 0 0;		
+		z-index:2;
+		}
+.land4{
+		top:10%;
+		left:10vw;
+		width:80vw;
+		height:90%;
+		border-radius:50% 50% 0 0;
+		z-index:-2;
+		}
+
